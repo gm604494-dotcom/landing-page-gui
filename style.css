@@ -1,0 +1,241 @@
+:root{
+    --bg: #fcfcfc;
+    --card: #f5dfd5a8;
+    --text: #102a43;
+    --muted: #596b7a;
+    --accent: #0066ff;
+    --accent-2: #00bfa6;
+    --glass: rgba(16,42,67,0.06);
+    --radius: 10px;
+    --container-width: 1100px;
+    --gap: 1.25rem;
+    font-size: 16px;
+}
+
+/* Reset / base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+    margin:0;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background:var(--bg);
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.45;
+    -webkit-tap-highlight-color:transparent;
+}
+
+/* Utility container */
+.container{
+    max-width:var(--container-width);
+    margin:0 auto;
+    padding:0 1rem;
+}
+
+/* Header / Nav */
+.site-header{
+    background:transparent;
+    position:sticky;
+    top:0;
+    z-index:40;
+    backdrop-filter:saturate(120%) blur(6px);
+    padding:0.5rem 0;
+}
+.nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:var(--gap);
+}
+.brand{
+    font-weight:700;
+    color:var(--text);
+    text-decoration:none;
+    font-size:1.125rem;
+    display:inline-flex;
+    align-items:center;
+    gap:0.35rem;
+}
+.brand-accent{ color:var(--accent); font-weight:900; }
+
+/* Navigation links */
+.nav-links{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    gap:1rem;
+    align-items:center;
+}
+.nav-links a{
+    color:var(--muted);
+    text-decoration:none;
+    padding:0.5rem 0.4rem;
+    border-radius:6px;
+    transition:all .18s ease;
+    font-weight:500;
+}
+.nav-links a:hover,
+.nav-links a:focus{ color:var(--text); background:var(--glass); outline:none; }
+
+/* Page title (header H1) */
+.page{ margin:1.25rem 0 0.25rem 0; text-align:center; font-size:1.2rem; color:var(--muted); }
+.title{ font-size:1.5rem; font-weight:700; }
+
+/* Hero */
+.hero{
+    display:flex;
+    gap:2rem;
+    align-items:center;
+    padding:2.25rem 0;
+}
+.hero-content{ flex:1 1 480px; }
+.hero-visual{ flex:0 0 520px; display:flex; justify-content:center; align-items:center; }
+.hero-visual img{ width:100%; max-width:520px; height:auto; border-radius:var(--radius); box-shadow:0 8px 30px rgba(16,42,67,0.08); }
+
+/* Headings & buttons */
+h2{ margin:0 0 .75rem 0; font-size:1.5rem; color:var(--text); }
+p{ margin:.5rem 0; color:var(--muted); }
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    padding:0.63rem 0.9rem;
+    border-radius:8px;
+    font-weight:600;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .12s ease, box-shadow .12s ease;
+}
+.btn:active{ transform:translateY(1px); }
+.btn-primary{
+    background:linear-gradient(180deg,var(--accent),#0050d1);
+    color:white;
+    box-shadow:0 6px 20px rgba(0,102,255,0.12);
+}
+.btn-outline{
+    background:transparent;
+    color:var(--accent);
+    border-color:rgba(0,102,255,0.12);
+}
+
+/* Feature grid */
+.features{ padding:1.75rem 0; }
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:1rem;
+    margin-top:0.75rem;
+}
+.feature{
+    background:var(--card);
+    padding:1rem;
+    border-radius:10px;
+    box-shadow:0 6px 18px rgba(16,42,67,0.04);
+}
+.feature h4{ margin:0 0 .5rem 0; font-size:1.05rem; }
+.feature p{ margin:0; color:var(--muted); }
+
+/* About */
+.about{ padding:1.5rem 0; }
+.about-row{
+    display:flex;
+    gap:1rem;
+    align-items:center;
+    flex-wrap:wrap;
+}
+.about-text{ flex:1 1 420px; }
+.about-image{ flex:0 0 360px; }
+.about-image img{ width:100%; border-radius:8px; box-shadow:0 6px 18px rgba(16,42,67,0.06); }
+
+/* Contact form */
+.contact{ padding:1.5rem 0 2rem 0; }
+.contact-form{
+    background:var(--card);
+    padding:1rem;
+    border-radius:10px;
+    box-shadow:0 10px 30px rgba(16,42,67,0.06);
+    max-width:760px;
+}
+.form-row{ display:flex; flex-direction:column; gap:0.35rem; margin-bottom:0.8rem; }
+label{ font-size:.9rem; color:var(--muted); }
+input[type="text"],
+input[type="email"],
+textarea{
+    padding:.6rem .75rem;
+    border-radius:8px;
+    border:1px solid rgba(16,42,67,0.08);
+    background:transparent;
+    outline:none;
+    font:inherit;
+    color:var(--text);
+    transition:border-color .12s ease, box-shadow .12s ease;
+}
+input:focus, textarea:focus{ border-color:var(--accent); box-shadow:0 6px 18px rgba(0,102,255,0.06); }
+.form-actions{ display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
+.form-note{ color:var(--muted); font-size:.85rem; }
+
+/* Footer */
+.site-footer{
+    margin-top:2rem;
+    padding:1rem 0;
+    background:transparent;
+    color:var(--muted);
+    text-align:center;
+}
+
+/* Accessibility */
+a:focus, button:focus{ outline:3px solid rgba(0,102,255,0.12); outline-offset:3px; }
+
+/* Responsive tweaks */
+@media (max-width:880px){
+    .hero{ flex-direction:column-reverse; text-align:center; }
+    .hero-visual{ width:100%; max-width:520px; }
+    .nav-links{ display:none; } /* simple mobile behaviour; replace with menu as needed */
+    .brand{ font-size:1rem; }
+    .page{ font-size:1rem; }
+
+    /* projetos responsive padding */
+    body.projetos .container { padding-left: 1rem; padding-right: 1rem; }
+    body.projetos .hero,
+    body.projetos .about,
+    body.projetos .features,
+    body.projetos .contact,
+    body.projetos .site-footer { padding-left: 0.5rem; padding-right: 0.5rem; }
+}
+
+@media (max-width:520px){
+    :root{ font-size:15px; }
+    .hero-content h2{ font-size:1.15rem; }
+    .brand-accent{ font-size:.95rem; }
+
+    body.projetos .container { padding-left: 0.75rem; padding-right: 0.75rem; }
+}
+
+/* Projetos page adjustments:
+     - wider container padding
+     - force a vertical list (one projeto per row) with comfortable inner padding
+*/
+body.projetos .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+body.projetos .hero,
+body.projetos .about,
+body.projetos .features,
+body.projetos .contact,
+body.projetos .site-footer {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+/* Make projetos list vertical on all screen sizes */
+body.projetos .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+body.projetos .feature {
+    padding: 1rem;
+    width: 100%;
+}

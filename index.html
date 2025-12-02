@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing Page Guilherme M</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+ <h1 class="page title">GuiM</h1>
+
+<script>
+  // Remove the projetos preview section as early as possible so it's not part of the initial <main>.
+  (function(){
+    function removePreviewFrom(node){
+      if(!node || node.nodeType !== 1) return false;
+      const elById = node.querySelector && node.querySelector('#projetos-preview');
+      if(elById){ elById.remove(); return true; }
+      const elByClass = node.querySelector && node.querySelector('.projects-preview');
+      if(elByClass){ elByClass.remove(); return true; }
+      return false;
+    }
+
+    // Try immediate removal (in case element already parsed)
+    if(removePreviewFrom(document)) return;
+
+    // Watch for the element as the parser adds it, then remove and stop observing.
+    const obs = new MutationObserver((mutations, observer) => {
+      for (const m of mutations) {
+        for (const n of m.addedNodes) {
+          if (removePreviewFrom(n) || removePreviewFrom(document)) {
+            observer.disconnect();
+            return;
+          }
+        }
+      }
+    });
+    obs.observe(document.documentElement, { childList: true, subtree: true });
+  })();
+</script>
+<header class="site-header">
+  <nav class="nav container">
+    <a href="#" class="brand">GuiM<span class="brand-accent"></span></a>
+    <ul class="nav-links">
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="projetos.html">Projetos</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="hero container" id="hero" aria-labelledby="hero-title">
+    <div class="hero-content">
+      <h2 id="hero-title">Soluções tecnológicas que impulsionam seu negócio</h2>
+      <p>Design, tecnologia e consultoria para otimizar processos e melhorar resultados.</p>
+      <p>
+        <a class="btn btn-primary" href="#contato">Solicitar proposta</a>
+        <a class="btn btn-outline" href="#sobre">Saiba mais</a>
+      </p>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <img src="https://via.placeholder.com/520x320?text=Ilustração" alt="">
+    </div>
+  </section>
+
+  <section class="features container" id="servicos" aria-labelledby="servicos-title">
+    <h3 id="servicos-title">Nossos serviços</h3>
+    <div class="feature-grid">
+      <article class="feature">
+        <h4>Restauração de sites</h4>
+        <p>Faço uma repaginada boa no seu site, o deixando mais chamativo e otimizado, perfeito para restaurantes, vendedores, freelancers, etc.</p>
+      </article>
+      <article class="feature">
+        <h4>Criação de páginas web</h4>
+        <p>Crio uma página web personalizada, seja um portfólio interativo virtual, um cardápio web, landing page de empresa para contato...</p>
+      </article>
+      <article class="feature">
+        <h4>Integração e Interação</h4>
+        <p>Precisa que seus clientes usem apenas um link para ter acesso a todos os seus serviços? É comigo mesmo.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="about container" id="sobre" aria-labelledby="sobre-title">
+    <h3 id="sobre-title">Sobre nós</h3>
+    <div class="about-row">
+      <div class="about-text">
+        <p>Sou um desenvolvedor junior dedicado a criar soluções eficientes e simples para empresas de todos os tamanhos que acabam por perder engajamento com clientes por não terem sistemas modernos e agradáveis de utilizar, ou sistemas antigos e defasados. O foco é entregar impacto mensurável com transparência e prazos claros.</p>
+        <ul>
+          <li>Metodologias ágeis</li>
+          <li>Experiência em design e desenvolvimento front-end</li>
+          <li>Compromisso com resultados</li>
+          <li>Comunicação clara e sem enrolação</li>
+          <li>Opinião jovem, refletindo o consumidor</li>
+          <li>Fácil acesso e suporte</li>
+          <li>Feedback constante e sincero</li>
+        </ul>
+      </div>
+      <div class="about-image" aria-hidden="true">
+        <img src="https://via.placeholder.com/360x240?text=Equipe" alt="">
+      </div>
+    </div>
+  </section>
+
+  <section class="contact container" id="contato" aria-labelledby="contato-title">
+    <h3 id="contato-title">Fale comigo!</h3>
+    <form class="contact-form" action="#" method="post" novalidate>
+      <div class="form-row">
+        <label for="nome">Nome</label>
+        <input id="nome" name="nome" type="text" required>
+      </div>
+      <div class="form-row">
+        <label for="email">E‑mail</label>
+        <input id="email" name="email" type="email" required>
+      </div>
+      <div class="form-row">
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+        <small class="form-note">Respondo em até 2 dias úteis.</small>
+      </div>
+    </form>
+  </section>
+
+  <!-- Projetos (preview) -->
+  <section class="projects-preview container" id="projetos-preview" aria-labelledby="projetos-title">
+    <h3 id="projetos-title">Projetos</h3>
+    <p>Veja alguns projetos selecionados. Clique em "Ver todos os projetos" para ver mais.</p>
+    <div class="projects-grid">
+      <article class="project">
+        <img src="https://via.placeholder.com/320x180?text=Projeto+1" alt="Preview do projeto 1">
+        <h4>Projeto 1</h4>
+        <p>Breve descrição do projeto 1.</p>
+      </article>
+      <article class="project">
+        <img src="https://via.placeholder.com/320x180?text=Projeto+2" alt="Preview do projeto 2">
+        <h4>Projeto 2</h4>
+        <p>Breve descrição do projeto 2.</p>
+      </article>
+      <article class="project">
+        <img src="https://via.placeholder.com/320x180?text=Projeto+3" alt="Preview do projeto 3">
+        <h4>Projeto 3</h4>
+        <p>Breve descrição do projeto 3.</p>
+      </article>
+    </div>
+    <p><a class="btn btn-outline" href="projetos.html">Ver todos os projetos</a></p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© <span id="year"></span> GuiM Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script>
+  // Pequeno script para ano atual
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+<!-- SPA: carregar projetos.html dentro do <main> -->
+<script>
+  (function(){
+    const projetosLink = document.querySelector('a[href="projetos.html"]');
+    const mainEl = document.querySelector('main');
+    const originalMainHTML = mainEl.innerHTML;
+
+    async function loadProjects(push = true){
+      try{
+        const res = await fetch('projetos.html');
+        if(!res.ok) throw new Error('fetch failed');
+        const text = await res.text();
+        const doc = new DOMParser().parseFromString(text, 'text/html');
+        const newMain = doc.querySelector('main');
+        if(!newMain) throw new Error('no main in projetos.html');
+        mainEl.innerHTML = newMain.innerHTML;
+        if(push) history.pushState({page: 'projetos'}, '', '#projetos');
+        window.scrollTo(0,0);
+      }catch(err){
+        // Fallback: navega para a página real se algo falhar
+        window.location.href = 'projetos.html';
+      }
+    }
+
+    if(projetosLink){
+      projetosLink.addEventListener('click', function(e){
+        e.preventDefault();
+        loadProjects(true);
+      });
+    }
+
+    window.addEventListener('popstate', function(e){
+      if(e.state && e.state.page === 'projetos'){
+        // volta para projetos (recarrega sem empurrar novo state)
+        loadProjects(false);
+      } else {
+        // restaura conteúdo original
+        mainEl.innerHTML = originalMainHTML;
+      }
+    });
+
+    // se a URL tem hash #projetos ao abrir, já carregar
+    if(location.hash === '#projetos'){
+      loadProjects(false);
+    }
+  })();
+</script>
+
+</body>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projetos — EmpresaX</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav container">
+    <a href="index.html" class="brand">Empresa<span class="brand-accent">X</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#servicos">Serviços</a></li>
+      <li><a href="projetos.html" aria-current="page">Projetos</a></li>
+      <li><a href="index.html#sobre">Sobre</a></li>
+      <li><a href="index.html#contato">Contato</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="projects-list" aria-labelledby="all-projects-title">
+    <h1 id="all-projects-title">Projetos</h1>
+    <p>Galeria dos trabalhos e estudos de caso. Clique em um item para ver detalhes.</p>
+
+    <div class="projects-grid">
+      <article class="project">
+        <img src="https://via.placeholder.com/520x320?text=Projeto+1" alt="Projeto 1">
+        <h3>Projeto 1</h3>
+        <p>Descrição completa do projeto 1. Tecnologias: ...</p>
+        <p><a class="btn btn-outline" href="#">Ver detalhes</a></p>
+      </article>
+
+      <article class="project">
+        <img src="https://via.placeholder.com/520x320?text=Projeto+2" alt="Projeto 2">
+        <h3>Projeto 2</h3>
+        <p>Descrição completa do projeto 2. Tecnologias: ...</p>
+        <p><a class="btn btn-outline" href="#">Ver detalhes</a></p>
+      </article>
+
+      <article class="project">
+        <img src="https://via.placeholder.com/520x320?text=Projeto+3" alt="Projeto 3">
+        <h3>Projeto 3</h3>
+        <p>Descrição completa do projeto 3. Tecnologias: ...</p>
+        <p><a class="btn btn-outline" href="#">Ver detalhes</a></p>
+      </article>
+
+      <!-- Adicione mais artigos de projeto conforme necessário -->
+    </div>
+
+    <p><a class="btn" href="index.html">Voltar ao início</a></p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© <span id="year"></span> EmpresaX. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
